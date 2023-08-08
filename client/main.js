@@ -23,11 +23,12 @@ const getFortune = () => {
         console.log(err)
     })
 };
-const listAcc = (event) =>{
+const generateAccomps = (list) =>{
+    accompList.innerHTML = ""
 
 }
 
 
 complimentBtn.addEventListener('click', getCompliment)
 fortuneBtn.addEventListener('click', getFortune)
-addBtn.addEventListener('click', addAcc)
+accompForm.addEventListener('click', addAccomp)
