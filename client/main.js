@@ -1,8 +1,8 @@
 const complimentBtn = document.getElementById("complimentButton")
 const fortuneBtn =document.getElementById("fortuneButton")
-const accForm = document.getElementById("acc-form")
-const accInput = document.getElementById("acc-input")
-const accList = document.getElementById("acc-list")
+const accompForm = document.getElementById("accomp-form")
+const accompInput = document.getElementById("accomp-input")
+const accompList = document.getElementById("accomp-list")
 
 const getCompliment = () => {
     axios
@@ -26,7 +26,30 @@ const getFortune = () => {
 const generateAccomps = (list) =>{
     accompList.innerHTML = ""
 
+    list.forEach((accomp) => {
+        let ul = document.createElement('ul')
+        ul.innerText = accomp
+        accompList.appendChild(ul)
+    })
 }
+
+
+const addAccomp = (event) =>{
+    event.preventDefault()
+    let newAccomp = accompInput.value
+    console.log(newAccomp)
+    let bodyObj = {
+        newAccomp:newAccomp
+    }
+    axios.post('http://localhost:4000/api/accompArr', bodyObj)
+    .then((res) => {
+        console.log(res.data)
+        generateAccomps(res.data)
+    })
+    .catch((err) =>{
+        console.log(err)
+    })
+};
 
 
 complimentBtn.addEventListener('click', getCompliment)
