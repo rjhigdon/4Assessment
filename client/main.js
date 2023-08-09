@@ -31,7 +31,7 @@ const generateAccomps = (list) =>{
         ul.innerText = accomp
         accompList.appendChild(ul)
     })
-}
+};
 
 
 const addAccomp = (event) =>{

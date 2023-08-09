@@ -26,6 +26,14 @@ module.exports = {
         accompArr.push(req.body.newAccomp)
         res.status(200).send(accompArr)
         console.log(accompArr)
-    }
+    },
+
+    deleteAccomp: (req, res) => {
+        let index = accompArr.findIndex((elem) => elem.id === +req.params.id)
+        accompArr.splice(index, 1)
+        res.status(200).send(accompArr)
+    },
+
+    
 
 }
