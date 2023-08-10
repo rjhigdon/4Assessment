@@ -33,7 +33,4 @@ module.exports = {
         accompArr.splice(index, 1)
         res.status(200).send(accompArr)
     },
-
-    
-
 }
