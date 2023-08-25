@@ -32,5 +32,5 @@ module.exports = {
         let index = accompArr.findIndex((elem) => elem.id === +req.params.id)
         accompArr.splice(index, 1)
         res.status(200).send(accompArr)
-    },
+    },   
 }
