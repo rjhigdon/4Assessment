@@ -51,6 +51,19 @@ const addAccomp = (event) =>{
     })
 };
 
+const deleteAccomp = (event) => {
+    let newAccomp = accompInput.value
+    let bodyObj = {
+        newAccomp:newAccomp
+    }
+    axios
+    .delete('/api/accomp/:id', bodyObj)
+    .then((res) => {console.log('accomplishment Removed')})
+    .catch((err) =>{
+        console.log(err)
+    })
+};
+
 
 complimentBtn.addEventListener('click', getCompliment)
 fortuneBtn.addEventListener('click', getFortune)
