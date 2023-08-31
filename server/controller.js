@@ -29,7 +29,7 @@ module.exports = {
     },
 
     deleteAccomp: (req, res) => {
-        let index = accompArr.findIndex((elem) => elem.id === +req.params.id)
+        let index = accompArr.findIndex((elem) => elem.id === +req.params.deleteValue)
         accompArr.splice(index, 1)
         res.status(200).send(accompArr)
     },   

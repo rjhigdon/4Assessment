@@ -63,6 +63,7 @@ const deleteAccomp = () => {
     .delete(`/api/deleteAccomp/${deleteValue}`)
         .then((res) => {
         alert(res.data);
+        generateAccomps(res.data)
     })
     .catch((err) => {
         console.log(err);
