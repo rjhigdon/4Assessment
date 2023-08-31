@@ -1,8 +1,10 @@
 const complimentBtn = document.getElementById("complimentButton")
 const fortuneBtn =document.getElementById("fortuneButton")
-const addBtn = document.getElementById("addBtn")
+const addBtn = document.getElementById("add-button")
 const accompInput = document.getElementById("accomp-input")
 const accompList = document.getElementById("accomp-list")
+const deleteBtn = document.getElementById("delete-button")
+const deleteInput = document.getElementById("delete-input")
 
 const getCompliment = () => {
     axios
@@ -53,21 +55,22 @@ const addAccomp = (event) =>{
     })
 };
 
-// const deleteAccomp = (event) => {
-//     let newAccomp = accompInput.value
-//     let bodyObj = {
-//         newAccomp:newAccomp
-//     }
-//     axios
-//     .delete('/api/accomp/:id', bodyObj)
-//     .then((res) => {console.log('accomplishment Removed')})
-//     .catch((err) =>{
-//         console.log(err)
-//     })
-// };
+const deleteAccomp = () => {
+    console.log("clicked")
+    let deleteValue = deleteInput.value;
+    console.log(deleteInput.value)
+    axios
+    .delete(`/api/deleteAccomp/${deleteValue}`)
+        .then((res) => {
+        alert(res.data);
+    })
+    .catch((err) => {
+        console.log(err);
+    });
+};
 
 
 complimentBtn.addEventListener('click', getCompliment)
 fortuneBtn.addEventListener('click', getFortune)
-AddBtn.addEventListener('click', addAccomp)
-// deleteBtn.addEventListener('click', deleteAccomp)
+addBtn.addEventListener('click', addAccomp)
+deleteBtn.addEventListener('click', deleteAccomp)
